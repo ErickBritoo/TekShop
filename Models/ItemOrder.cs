@@ -2,7 +2,7 @@ using TekShop.Models.Entities;
 
 namespace TekShop.Models.Entities
 {
-    class ItemOrder
+    public class ItemOrder
     {
         public int ID;
         public int Quantity { get; set; }

@@ -1,7 +1,7 @@
 
 namespace TekShop.Models.Entities
 {
-    enum Status
+    public enum Status
     {
         Aberto,
         Pago,
@@ -9,7 +9,7 @@ namespace TekShop.Models.Entities
 
     }
 
-    class Order
+    public class Order
     {
         public int ID;
         public Client ClientOrder { get; set; }

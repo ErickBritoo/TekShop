@@ -1,7 +1,7 @@
 
 namespace TekShop.Models.Entities
 {
-    class Product
+    public class Product
     {
         public int ID { get; set; }
         public required float Price { get; set; }

@@ -4,7 +4,7 @@ using Pomelo.EntityFrameworkCore.MySql;
 
 namespace TekShop.Data
 {
-    class AppDbContext(string connectionString) : DbContext
+    public class AppDbContext(string connectionString) : DbContext
     {
         private string _connectionString = connectionString;
         public DbSet<Category> Categories { get; set; }
