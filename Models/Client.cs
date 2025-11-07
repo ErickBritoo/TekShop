@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TekShop.Models.Entities
 {
     public class Client
@@ -7,6 +9,7 @@ namespace TekShop.Models.Entities
         public string? Email { get; set; }
         public DateTime RegistrationDate { get; private set; }
         public bool IsActive { get; set; } = false;
+        [Column(TypeName = "varchar(14)")]
         public required string Cpf { get; set; }
     }
 }
