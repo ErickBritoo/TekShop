@@ -9,5 +9,6 @@ namespace TekShop.Models.Entities
         public required Category Category { get; set; }
         public int QuantityInStock { get; set; }
         public bool IsActive { get; set; }
+        public List<ItemOrder> OrderItems { get; set; } = new();
     }
 }
