@@ -14,6 +14,5 @@ namespace TekShop.Data
 
             return new AppDbContext(optionsBuilder.Options);
         }
-
     }
 }
