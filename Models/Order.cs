@@ -11,10 +11,10 @@ namespace TekShop.Models.Entities
 
     public class Order
     {
-        public int ID;
-        public Client ClientOrder { get; set; }
+        public int ID { get; set; }
+        public required Client ClientOrder { get; set; }
         public DateTime Date { get; set; }
         public Status StatusOrder { get; set; }
-        public List<ItemOrder> ItemOrders { get; set; }
+        public required List<ItemOrder> ItemOrders { get; set; }
     }
 }

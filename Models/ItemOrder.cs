@@ -4,9 +4,9 @@ namespace TekShop.Models.Entities
 {
     public class ItemOrder
     {
-        public int ID;
+        public int ID { get; set; }
         public int Quantity { get; set; }
         public float SubTotal { get; private set; }
-        public Product ProductID { get; set; }
+        public required Product Product { get; set; }
     }
 }
