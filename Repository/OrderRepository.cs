@@ -3,7 +3,7 @@ using TekShop.Data;
 
 namespace TekShop.Repository
 {
-    public class OrderRepository(AppDbContext context) : RepositoryBase<Order>(context)
+    public class OrderRepository(AppDbContext context) : BaseRepository<Order>(context)
     {
     }
 }

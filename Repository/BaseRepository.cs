@@ -6,12 +6,12 @@ using TekShop.Interface;
 
 namespace TekShop.Repository
 {
-    public abstract class RepositoryBase<T> : IRepository<T> where T : class
+    public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
         protected readonly AppDbContext _context;
         protected readonly DbSet<T> _dbSet;
 
-        public RepositoryBase(AppDbContext context)
+        public BaseRepository(AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();

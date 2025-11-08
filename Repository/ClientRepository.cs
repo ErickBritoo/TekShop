@@ -6,7 +6,7 @@ using TekShop.Models.Entities;
 
 namespace TekShop.Repository
 {
-    class ClientRepository(AppDbContext appDbContext) : RepositoryBase<Client>(appDbContext)
+    class ClientRepository(AppDbContext appDbContext) : BaseRepository<Client>(appDbContext)
     {
     }
 }
