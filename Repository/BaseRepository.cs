@@ -48,13 +48,14 @@ namespace TekShop.Repository
 
         virtual async public Task<IEnumerable<T?>> Find(Expression<Func<T, bool>> predicate)
         {
-            return _dbSet.ToList();
+            return await _dbSet.ToListAsync();
         }
 
         virtual public List<T>? GetAll()
         {
             return [.. _dbSet];
         }
+
 
         public async Task Update(T entity)
         {
