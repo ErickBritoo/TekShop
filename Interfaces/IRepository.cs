@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace TekShop.Interface
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         public Task<T?> GetById(int id);
         public List<T>? GetAll();
