@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using TekShop.Models.Entities;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.Extensions.Options;
+using TekShopj.Data.ModelsConfigs;
+using TekShop.Data.ModelsConfigs;
 
 namespace TekShop.Data
 {
@@ -20,18 +22,8 @@ namespace TekShop.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Client>().HasIndex(c => c.Cpf).IsUnique();
-
-            modelBuilder.Entity<ItemOrder>()
-            .HasOne(io => io.Order)
-            .WithMany(o => o.ItemOrders)
-            .HasForeignKey(oi => oi.OrderID);
-
-            modelBuilder.Entity<ItemOrder>()
-                .HasOne(io => io.Product)
-                .WithMany(p => p.OrderItems)
-                .HasForeignKey(io => io.ProductID);
+            modelBuilder.ApplyConfiguration<Client>(new ClientConfigs());
+            modelBuilder.ApplyConfiguration<ItemOrder>(new ItemOrderConfigs());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
