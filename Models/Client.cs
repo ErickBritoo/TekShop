@@ -11,5 +11,11 @@ namespace TekShop.Models.Entities
         public bool IsActive { get; set; } = false;
         [Column(TypeName = "varchar(14)")]
         public required string Cpf { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"Nome: {Name}\n Email: {Email}\n CPF: {Cpf}\n Data de Registro: {RegistrationDate}\n Ativo: {(IsActive ? "Sim" : "Não")}";
+        }
     }
 }

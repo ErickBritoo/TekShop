@@ -14,5 +14,9 @@ namespace TekShop.Models.Entities
         public int OrderID { get; set; }
         public int ProductID { get; set; }
 
+        public override string ToString()
+        {
+            return $"Produto: {Product.Name}, Quantidade: {Quantity}, Subtotal: {SubTotal:C}";
+        }
     }
 }

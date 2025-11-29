@@ -4,5 +4,10 @@ namespace TekShop.Models.Entities
     {
         public int ID { get; set; }
         public required string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
