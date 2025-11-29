@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using TekShop.Interface;
 using TekShop.Models.Entities;
 
@@ -28,9 +29,9 @@ namespace TekShop.Controllers
             await _repository.Delete(id);
         }
 
-        public List<T>? GetAll()
+        public async Task<List<T>> GetAll()
         {
-            return _repository.GetAll();
+            return await _repository.GetAll();
         }
 
         public async Task<T?> GetById(int id)
@@ -42,5 +43,6 @@ namespace TekShop.Controllers
         {
             await _repository.Update(entity);
         }
+
     }
 }

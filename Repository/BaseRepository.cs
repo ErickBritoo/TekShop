@@ -57,7 +57,7 @@ namespace TekShop.Repository
             await SaveChanges();
         }
 
-        public Task<List<T>>? GetAll()
+        public Task<List<T>> GetAll()
         {
             return _dbSet.ToListAsync();
         }
