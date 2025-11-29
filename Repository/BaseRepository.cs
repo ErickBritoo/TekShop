@@ -51,16 +51,15 @@ namespace TekShop.Repository
             return await _dbSet.ToListAsync();
         }
 
-        virtual public List<T>? GetAll()
-        {
-            return [.. _dbSet];
-        }
-
-
         public async Task Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
             await SaveChanges();
+        }
+
+        public Task<List<T>>? GetAll()
+        {
+            return _dbSet.ToListAsync();
         }
     }
 }
