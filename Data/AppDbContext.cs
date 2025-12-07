@@ -26,9 +26,5 @@ namespace TekShop.Data
             modelBuilder.ApplyConfiguration<ItemOrder>(new ItemOrderConfigs());
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-        }
     }
 }

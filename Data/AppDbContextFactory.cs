@@ -1,16 +1,36 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace TekShop.Data
 {
     public class AppDbContextFactory() : IDesignTimeDbContextFactory<AppDbContext>
     {
+
+        private static IConfiguration? _configuration;
+
+        public static IConfiguration Configuration
+        {
+            get
+            {
+                if (_configuration == null)
+                {
+                    _configuration = new ConfigurationBuilder()
+                        .SetBasePath(Directory.GetCurrentDirectory())
+                        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                        .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true)
+                        .Build();
+                }
+                return _configuration;
+            }
+        }
+
         public AppDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            var connectionString = "Server=127.0.0.1;Port=3306;Database=TekShop;User=root;Password=Erickdan456";
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
-            optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(connectionString));
+            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
             return new AppDbContext(optionsBuilder.Options);
         }
