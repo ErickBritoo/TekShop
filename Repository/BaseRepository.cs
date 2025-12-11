@@ -8,10 +8,10 @@ namespace TekShop.Repository
 {
     public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
-        protected readonly AppDbContext _context;
+        protected readonly IDbContext _context;
         protected readonly DbSet<T> _dbSet;
 
-        public BaseRepository(AppDbContext context)
+        public BaseRepository(IDbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();

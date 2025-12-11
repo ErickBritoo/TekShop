@@ -3,7 +3,7 @@ using TekShop.Interface;
 using TekShop.Models.Entities;
 namespace TekShop.Repository
 {
-    public class CategoryRepository(AppDbContext context) : BaseRepository<Category>(context)
+    public class CategoryRepository(IDbContext context) : BaseRepository<Category>(context)
     {
 
     }
