@@ -9,6 +9,7 @@ namespace TekShopj.Data.ModelsConfigs
         public void Configure(EntityTypeBuilder<Client> builder)
         {
             builder.HasIndex(c => c.Cpf).IsUnique();
+            builder.HasIndex(c => c.Email).IsUnique();
         }
     }
 }
