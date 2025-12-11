@@ -7,7 +7,7 @@ namespace TekShop.Models.Entities
         public int ID { get; set; }
         public required string Name { get; set; }
         public string? Email { get; set; }
-        public DateTime RegistrationDate { get; private set; }
+        public DateTime RegistrationDate { get; set; } = DateTime.Now;
         public bool IsActive { get; set; } = false;
         [Column(TypeName = "varchar(14)")]
         public required string Cpf { get; set; }
